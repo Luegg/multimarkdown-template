@@ -30,7 +30,7 @@ latex: meta
 	$(MMD_BUILD_CMD) -t latex > $(LATEXNAME)
 
 pdf: temp-dir latex
-	xelatex -output-directory $(TEMP_DIR) $(LATEXNAME)
+	latexmk -pdf -output-directory=$(TEMP_DIR) $(LATEXNAME)
 	mv $(TEMP_DIR)/$(PDFNAME) $(PDFNAME)
 
 clean:
