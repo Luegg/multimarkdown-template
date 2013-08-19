@@ -13,7 +13,7 @@ ALL_METADATA = $(TEMP_DIR)/metadata
 
 BUILD_CMD = awk 'NR!=1&&FNR==1{print ""}1' $(ALL_METADATA) *.md | multimarkdown -f
 
-all: html pdf
+all: html latex pdf
 
 temp-dir:
 	mkdir -p $(TEMP_DIR)
