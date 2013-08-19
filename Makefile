@@ -1,4 +1,4 @@
-DOCNAME = document
+DOCNAME = output
 HTMLNAME = $(DOCNAME).html
 LATEXNAME = $(DOCNAME).tex
 PDFNAME = $(DOCNAME).pdf
