@@ -5,13 +5,15 @@ PDFNAME = $(DOCNAME).pdf
 
 TEMP_DIR = .temp
 
-TEMPLATE = templates/report
-DOC_METADATA_PLACEHOLDER = %DOCUMENT_METADATA%
 DOC_METADATA = metadata
-TEMPLATE_METADATA = $(TEMPLATE)/metadata
+
+TEMPLATE_DIR = $(firstword $(shell multimarkdown -e templatedir $(DOC_METADATA)) report)
+
+DOC_METADATA_PLACEHOLDER = %DOCUMENT_METADATA%
+TEMPLATE_METADATA = $(TEMPLATE_DIR)/metadata
 ALL_METADATA = $(TEMP_DIR)/metadata
 
-BUILD_CMD = awk 'NR!=1&&FNR==1{print ""}1' $(ALL_METADATA) *.md | multimarkdown -f
+MMD_BUILD_CMD = awk 'NR!=1&&FNR==1{print ""}1' $(ALL_METADATA) *.md | multimarkdown -f
 
 all: html latex pdf
 
@@ -22,10 +24,10 @@ meta: temp-dir
 	sed -e "/$(DOC_METADATA_PLACEHOLDER)/r $(DOC_METADATA)" -e "/$(DOC_METADATA_PLACEHOLDER)/d" $(TEMPLATE_METADATA) > $(ALL_METADATA)
 
 html: meta
-	$(BUILD_CMD) -t html > $(HTMLNAME)
+	$(MMD_BUILD_CMD) -t html > $(HTMLNAME)
 
 latex: meta
-	$(BUILD_CMD) -t latex > $(LATEXNAME)
+	$(MMD_BUILD_CMD) -t latex > $(LATEXNAME)
 
 pdf: temp-dir latex
 	xelatex -output-directory $(TEMP_DIR) $(LATEXNAME)
