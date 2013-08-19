@@ -1,0 +1,6 @@
+Latex Input:		templates/report/preamble
+Latex Header Level:	2
+%DOCUMENT_METADATA%
+
+Latex Input:		templates/report/begin-doc
+Latex Footer:		templates/report/footer
