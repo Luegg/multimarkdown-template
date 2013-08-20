@@ -1,3 +1,6 @@
 [submodule "lib/mathjax"]
 	path = lib/mathjax
 	url = https://github.com/mathjax/MathJax.git
+[submodule "lib/markdown-css-themes"]
+	path = lib/markdown-css-themes
+	url = https://github.com/jasonm23/markdown-css-themes.git
