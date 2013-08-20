@@ -13,7 +13,7 @@ DOC_METADATA_PLACEHOLDER = %DOCUMENT_METADATA%
 TEMPLATE_METADATA = $(TEMPLATE_DIR)/metadata
 ALL_METADATA = $(TEMP_DIR)/metadata
 
-MMD_BUILD_CMD = awk 'NR!=1&&FNR==1{print ""}1' $(ALL_METADATA) *.md | multimarkdown -f
+MMD_BUILD_CMD = awk 'NR!=1&&FNR==1{print ""}1' $(ALL_METADATA) *.md | multimarkdown
 
 all: html latex pdf
 

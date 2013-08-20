@@ -1,3 +1,5 @@
+Xhtml header:		<script type="text/javascript" src="lib/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+Css:				blub.css
 Latex Input:		templates/report/preamble
 Latex Header Level:	2
 %DOCUMENT_METADATA%
