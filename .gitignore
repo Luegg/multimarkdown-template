@@ -1,4 +1,6 @@
 /.temp/*
 output.*
+*.html
+*.pdf
 
 .DS_Store
